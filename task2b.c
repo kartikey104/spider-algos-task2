@@ -1,20 +1,19 @@
 /* 			TASK2 - B
+1. Here I have done a very basic implementation of arrays and then a linear search. I am trying for hacker 2 mode, will update when done!!
+
 */
+#include<stdlib.h>
 #include<stdio.h>
-main()
+int main()
 {
 
-	int n,q,i,l,u,v;
+	int n,q,i,l,u,v;			// n - array size, q - no of queires, i - index, l - lower bound, u - upper bound, v - value
 	// get input
 	scanf("%d\n%d",&n,&q);
-	long *a;
+	long long int *a;
 	// allocate memory for array
-	a = (long*)malloc((n+1)*sizeof(long));
-	//check if memory allocated
-	if( a == NULL)
-		printf("Memory not allocated");
-	else
-	{
+	a = (long long int *)malloc((n+1)*sizeof(long long int));
+	
 		for(i=0;i<n+1;i++)
 			a[i] = i;
 		while(q--)
@@ -23,12 +22,12 @@ main()
 			for(i=l;i<u+1;i++)
 				a[i] += v;
 		}
-		long max = a[1];
+		long long int max = a[1];
 		for(i=2;i<n+1;i++)
 			if(a[i] > max)
 				max = a[i];
-		printf("%d",max);
+		printf("%lld",max);
 
-	}
-	return;
+	free (a);
+	return 0;
 }
